@@ -51,12 +51,15 @@
         $('#croom').submit(function(){
           crname = $('#cr').val();
           alert("chatroom changed");
+          $('#messages').innerHTML = '';
           return false;
         });
         socket.on('chat message', function(msg){
           if(msg.startsWith(crname))
           {
-            $('#messages').append($('<li>').text(msg));
+            var f = msg.split(':');
+            var newmsg = "[Chatroom : "+f[0]+"] "+f[1]+" => "+f[2];
+            $('#messages').append($('<li>').text(newmsg));
             window.scrollTo(0, document.body.scrollHeight);
           }
         });
