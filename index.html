@@ -5,18 +5,20 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%;height:50px;}
-      #msg {  bottom:100px;}
-      #croom {  bottom:50px;}
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #msg{ background: #333; padding: 3px; position: fixed; bottom: 0; width: 100vw;height:50px;}
+      #nick{ background: #333; padding: 3px; position: fixed; top: 2vw;left:1vw; width: 48vw;height:50px;}
+      #croom{ background: #333; padding: 3px; position: fixed; top: 2vw; left:50vw;width: 48vw;height:50px;}
+      form input { padding: 10px; width: 30vw;margin-right:2vw; box-sizing:border-box;}
+      #msg > input{	width:80vw;	}
+      form button { width:14vw; background: rgb(130, 224, 255); border: none; padding: 10px;box-sizing:border-box; }
+      #messages { list-style-type: none; margin: 13vw 0; padding: 0;background-color:#ddd; }
       #messages li { padding: 5px 10px; }
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
     </style>
   </head>
   <body>
+    <center><h3>Chat App!!!</h3></center>
     <ul id="messages"></ul>
     <form id="msg" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
