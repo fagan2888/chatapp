@@ -6,7 +6,8 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      #msg {  bottom:50px;}
+      #msg {  bottom:100px;}
+      #croom {  bottom:50px;}
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
       #messages { list-style-type: none; margin: 0; padding: 0; }
@@ -23,19 +24,27 @@
     <form id="nick" action="">
       <input id="nn" autocomplete="off" /><button>Set Nickname</button>
     </form>
+    <form id="croom" action="">
+      <input id="cr" autocomplete="off" /><button>Set Chatroom</button>
+    </form>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(document).ready(function() {
         var socket = io();
         var nname = "none";
+        var crname = "none";
         $('#msg').submit(function(){
-          socket.emit('chat message', nname+':'+ $('#m').val());
+          socket.emit('chat message', crname+':'+nname+':'+ $('#m').val());
           $('#m').val('');
           return false;
         });
-        $('#nick').submit(function(e){
+        $('#nick').submit(function(){
           nname = $('#nn').val();
+          return false;
+        });
+        $('#croom').submit(function(){
+          crname = $('#cr').val();
           return false;
         });
         socket.on('chat message', function(msg){
