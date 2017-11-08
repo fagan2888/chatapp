@@ -51,7 +51,7 @@
         $('#croom').submit(function(){
           crname = $('#cr').val();
           alert("chatroom changed");
-          $('#messages').innerHTML = '';
+          $('#messages').empty();
           return false;
         });
         socket.on('chat message', function(msg){
