@@ -50,8 +50,8 @@
         });
         $('#croom').submit(function(){
           crname = $('#cr').val();
+          $('#messages > li').remove();
           alert("chatroom changed");
-          $('#messages').empty();
           return false;
         });
         socket.on('chat message', function(msg){
